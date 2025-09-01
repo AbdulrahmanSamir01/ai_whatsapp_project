@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="زر تيليجرام مُستقبلي في منتصف الصفحة" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>زر تيليجرام — تصميم مُستقبلي</title>
+  <style>
+    /* Reset بسيط للأناقة والاتساق */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: #e5f1ff;
+      background: radial-gradient(1200px 800px at 20% 10%, #0b1220 0%, #070b12 40%, #05070c 100%);
+      /* قماش ضوئي خفيف */
+      --c1: rgba(14,165,233,.25);
+      --c2: rgba(59,130,246,.15);
+      --c3: rgba(236,72,153,.08);
+      background-image:
+        radial-gradient(300px 300px at 20% 15%, var(--c1), transparent 60%),
+        radial-gradient(240px 240px at 80% 25%, var(--c2), transparent 60%),
+        radial-gradient(320px 320px at 50% 80%, var(--c3), transparent 60%),
+        radial-gradient(1200px 800px at 20% 10%, #0b1220 0%, #070b12 40%, #05070c 100%);
+    }
+
+    /* شبكة كاملة لتوسيط عمودي/أفقي */
+    .viewport-center {
+      min-height: 100svh; /* آمن مع الشاشات الحديثة */
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* نجوم لطيفة متحركة بخفة */
+    .stars, .stars::before, .stars::after {
+      content: "";
+      position: absolute;
+      inset: -50% -50% -50% -50%;
+      background: radial-gradient(1px 1px at 20% 30%, #9bdcff 60%, transparent 61%),
+                  radial-gradient(1px 1px at 70% 40%, #a5b4fc 60%, transparent 61%),
+                  radial-gradient(1px 1px at 40% 80%, #f0abfc 60%, transparent 61%),
+                  radial-gradient(1px 1px at 85% 75%, #93c5fd 60%, transparent 61%);
+      opacity: .15;
+      animation: drift 60s linear infinite;
+      transform: translateZ(0);
+      z-index: -1;
+    }
+    .stars::before { filter: blur(1px); animation-duration: 90s; }
+    .stars::after  { filter: blur(2px); animation-duration: 120s; }
+    @keyframes drift { to { transform: translate3d(2%, -2%, 0); } }
+
+    /* زر تيليغرام — زجاج مُشع */
+    .tg-button {
+      --glow: 0 10px 30px rgba(14,165,233,.35), 0 0 0 1px rgba(14,165,233,.25) inset;
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #e6f6ff;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border: 1px solid rgba(148, 197, 255, .25);
+      backdrop-filter: blur(8px) saturate(140%);
+      box-shadow: var(--glow);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      will-change: transform, box-shadow;
+    }
+    .tg-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(14,165,233,.55), 0 0 0 1px rgba(14,165,233,.35) inset;
+      border-color: rgba(148, 197, 255, .45);
+    }
+    .tg-button:active { transform: translateY(0) scale(.99); }
+    .tg-button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(14,165,233,.5), 0 8px 32px rgba(14,165,233,.45);
+    }
+
+    .tg-icon { width: 24px; height: 24px; display: inline-block; }
+
+    .label {
+      font-weight: 600;
+      letter-spacing: .3px;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    /* شارة صغيرة اختيارية */
+    .badge {
+      font-size: .75rem;
+      font-weight: 500;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      background: rgba(59,130,246,.18);
+      border: 1px solid rgba(59,130,246,.35);
+      margin-inline-start: .25rem;
+      vertical-align: middle;
+    }
+
+    /* للشاشات الصغيرة */
+    @media (max-width: 380px) {
+      .label { font-size: 1rem; }
+      .tg-icon { width: 22px; height: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="viewport-center" aria-label="زر تيليجرام في منتصف الصفحة">
+    <div class="stars" aria-hidden="true"></div>
+
+    <a class="tg-button" href="https://t.me/AS_AI_AssistantBot" target="_blank" rel="noopener" aria-label="افتح تيليجرام">
+      <!-- أيقونة تيليجرام SVG -->
+      <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M9.033 15.323 8.86 19.24c.41 0 .589-.176.802-.387l1.929-1.847 4.001 2.936c.734.404 1.255.191 1.456-.681l2.64-11.845.001-.001c.234-1.024-.37-1.424-1.073-1.174L3.52 10c-1.012.395-.997.963-.172 1.221l4.34 1.353 10.07-6.343c.474-.288.906-.129.551.159z" fill="currentColor"/>
+      </svg>
+      <span class="label">راسلني على تيليجرام</span>
+      <span class="badge">Live</span>
+    </a>
+  </main>
+</body>
+</html>
