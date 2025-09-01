@@ -24,6 +24,7 @@ goose3==3.1.19
 groq==0.31.0
 grpcio==1.74.0
 grpcio-status==1.71.2
+gunicorn==23.0.0
 h11==0.16.0
 httpcore==1.0.9
 httplib2==0.22.0
