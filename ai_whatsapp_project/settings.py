@@ -53,7 +53,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://aiwhatsappproject-production.up.railway.app/"
+    "https://aiwhatsappproject-production.up.railway.app"
 ]
 
 
